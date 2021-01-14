@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random color</title>
+</head>
+<body>
+    <style>
+        div{
+            background-color: black;
+            width: 290px;
+            height: 100px;
+            margin: 150px auto;
+            color: white;
+            text-align: center;
+            padding: 10px 10px;
+            border-radius: 10px;
+
+        }
+        button{
+            margin-top: 50px;
+            width: 100px;
+            height: 30px;
+            border: 2px solid black;
+            background-color: transparent;
+            border-radius: 5px;
+            outline: none;
+        }
+    </style>
+    <div>
+        <h1>background-color:<span class="color">color</span></h1>
+        <button id="btn">Click me</button>
+    </div>
+    <script>
+        const hex =[0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
+        const color= document.querySelector(".color");
+        const btn = document.querySelector("#btn");
+
+        btn.addEventListener("click",function(){
+            let hexcolor ="#";
+            for(let i = 0;i <6;i++){
+                hexcolor += hex[random()];
+            }
+            color.textContent = hexcolor;
+            document.body.style.backgroundColor = hexcolor;
+
+        });
+        function random(){
+            return Math.floor(Math.random()*hex.length);
+        }
+    </script>
+
+</body>
+</html>
